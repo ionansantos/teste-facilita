@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ClientsTableSeeder::class,
             BooksTableSeeder::class,
-            LoansTableSeeder::class,
         ]);
     }
 }
