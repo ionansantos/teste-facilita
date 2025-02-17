@@ -54,6 +54,7 @@
                         <select class="form-select" name="genre" required>
                             <option value="">Selecione o gênero</option>
                             <option value="ficcao">Ficção</option>
+                            <option value="comedia">Comédia</option>
                             <option value="romance">Romance</option>
                             <option value="fantasia">Fantasia</option>
                             <option value="aventura">Aventura</option>
@@ -81,10 +82,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Número de Registro</th>
             <th>Nome</th>
             <th>Autor</th>
-            <th>Número de Registro</th>
             <th>Gênero</th>
             <th>Situação</th>
             <th>Ações</th>
@@ -93,12 +93,11 @@
     <tbody>
         @foreach($books as $book)
         <tr>
-            <td>{{ $book->id }}</td>
+            <td>{{ $book->registration_number }}</td>
             <td>{{ $book->name }}</td>
             <td>{{ $book->author }}</td>
-            <td>{{ $book->registration_number }}</td>
             <td>{{ $book->genre }}</td>
-            <td>{{ $book->is_borrowed ? 'Emprestado' : 'Disponível' }}</td>
+            <td>{{ $book->status }}</td>
             <td>
                 <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning btn-sm">Editar</a>
                 <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="d-inline">

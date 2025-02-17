@@ -78,7 +78,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Usuário</th>
             <th>Livro</th>
             <th>Data de Empréstimo</th>
@@ -89,7 +88,6 @@
     <tbody>
         @foreach($loans as $loan)
         <tr>
-            <td>{{ $loan->id }}</td>
             <td>{{ $loan->client_registration_number }}</td>
             <td>{{ $loan->book_registration_number }}</td>
             <td>{{ \Carbon\Carbon::parse($loan->due_date)->format('d/m/Y') }}</td>

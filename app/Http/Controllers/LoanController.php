@@ -23,7 +23,7 @@ class LoanController extends Controller
     public function store(LoanRequest $request) {
         try{
             $this->service->new($request->all());
-            return redirect()->route('loans.index')->with("success" ,"emprestimo cadastro com sucesso");
+            return redirect()->route('loans.index')->with("success" ,"emprestimo feito com sucesso");
         } catch(\Exception $e) {
             return redirect()->back()->with('error', 'Erro cadastra emprestimo!');
         };

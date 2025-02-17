@@ -47,6 +47,9 @@ class BookController extends Controller
         if (!$book) {
             return redirect()->back()->with('error', 'Erro ao excluir registro: ' . $e->getMessage());
         }
+        if ($book->status === 'Emprestado' || $book->status === 'Atrasado') {
+            return redirect()->back()->with('error', 'Não é possível excluir um livro com status Emprestado ou Atrasado.');
+        }
 
         $this->service->destroy($id);
 

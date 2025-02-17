@@ -62,20 +62,18 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Número de Cadastro</th>
             <th>Nome</th>
             <th>Email</th>
-            <th>Número de Cadastro</th>
             <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         @foreach($clients as $client)
         <tr>
-            <td>{{ $client->id }}</td>
+            <td>{{ $client->registration_number }}</td>
             <td>{{ $client->name }}</td>
             <td>{{ $client->email }}</td>
-            <td>{{ $client->registration_number }}</td>
             <td>
                 <a href="{{ route('clients.edit', $client->id) }}" class="btn btn-warning btn-sm">Editar</a>
                 <form  action="{{ route('clients.destroy', $client->id) }}"   method="POST" class="d-inline">

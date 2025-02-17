@@ -43,6 +43,8 @@ class LoanService
             if (!$client || !$book) {
                 throw new \Exception('Cliente ou Livro não encontrado');
             }
+            $book->status = 'Emprestado';
+            $book->save();
 
             $data['status'] = 'Emprestado';
 
@@ -57,6 +59,17 @@ class LoanService
             throw new \Exception('Empréstimo não encontrado!');
         }
         $loan->status = $status;
+
+        if ($status == 'Devolvido') {
+            $book = Books::where('registration_number', $loan->book_registration_number)->first();
+
+            if ($book) {
+                $book->status = 'Disponível';
+                $book->save();
+            } else {
+                throw new \Exception('Livro não encontrado!');
+            }
+        }
         $loan->save();
     }
 }

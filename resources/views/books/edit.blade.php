@@ -43,7 +43,20 @@
 
     <div class="mb-3">
         <label for="genre" class="form-label">Gênero</label>
-        <input type="genre" class="form-control" id="genre" name="genre" value="{{ $book->genre }}" required>
+        <select class="form-select" name="genre" required>
+            <option value="">Selecione o gênero</option>
+            <option value="ficcao">Ficção</option>
+            <option value="comedia">Comédia</option>
+            <option value="romance">Romance</option>
+            <option value="fantasia">Fantasia</option>
+            <option value="aventura">Aventura</option>
+            <option value="historico">Histórico</option>
+            <option value="biografia">Biografia</option>
+            <option value="suspense">Suspense</option>
+            <option value="misterio">Mistério</option>
+            <option value="terror">Terror</option>
+            <option value="autoajuda">Autoajuda</option>
+        </select>
     </div>
 
     <button type="submit" class="btn btn-primary">Salvar Alterações</button>
