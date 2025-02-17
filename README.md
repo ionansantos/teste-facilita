@@ -32,7 +32,7 @@ docker compose up -d
 Acesse o container app
 
 ```sh
-docker compose exec -it teste-facilita-app-1 bash
+docker exec -it teste-facilita-app-1 bash
 ```
 
 Instale as dependências do projeto
