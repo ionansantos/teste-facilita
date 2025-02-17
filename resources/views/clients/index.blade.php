@@ -4,6 +4,29 @@
 
 @section('content')
 <h2>Usuários</h2>
+
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#novoClienteModal">Novo</a>
 <div class="modal fade" id="novoClienteModal" tabindex="-1" aria-labelledby="novoClienteModal" aria-hidden="true">
     <div class="modal-dialog">

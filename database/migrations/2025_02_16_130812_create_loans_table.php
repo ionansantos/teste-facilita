@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('book_id')->constrained('books')->onDelete('cascade');
+            $table->string('client_registration_number');
+            $table->string('book_registration_number');
             $table->date('due_date');
-            $table->enum('status', ['Em andamento', 'Atrasado', 'Devolvido'])->default('Em andamento');
+            $table->enum('status', ['Emprestado', 'Atrasado', 'Devolvido'])->default('Emprestado');
             $table->timestamps();
         });
     }

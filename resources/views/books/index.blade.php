@@ -4,6 +4,29 @@
 
 @section('content')
 <h2>Livros</h2>
+
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('error'))
+<div class="alert alert-danger">
+    {{ session('error') }}
+</div>
+@endif
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <a class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#novoLivroModal">Novo</a>
 <div class="modal fade" id="novoLivroModal" tabindex="-1" aria-labelledby="novoLivroModal" aria-hidden="true">
     <div class="modal-dialog">
@@ -28,8 +51,21 @@
 
                     <div class="mb-3">
                         <label for="genre" class="form-label">Gênero</label>
-                        <input type="text" class="form-control" id="genre" name="genre" required>
+                        <select class="form-select" name="genre" required>
+                            <option value="">Selecione o gênero</option>
+                            <option value="ficcao">Ficção</option>
+                            <option value="romance">Romance</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="aventura">Aventura</option>
+                            <option value="historico">Histórico</option>
+                            <option value="biografia">Biografia</option>
+                            <option value="suspense">Suspense</option>
+                            <option value="misterio">Mistério</option>
+                            <option value="terror">Terror</option>
+                            <option value="autoajuda">Autoajuda</option>
+                        </select>
                     </div>
+
 
                     <!-- Botões -->
                     <div class="modal-footer">

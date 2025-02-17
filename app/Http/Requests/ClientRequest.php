@@ -22,8 +22,8 @@ class ClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'email' => 'required',
+            'name' => 'required|string|regex:/^[\pL\s]+$/u',
+            'email' => 'required|email',
         ];
     }
 
@@ -31,7 +31,10 @@ class ClientRequest extends FormRequest
     {
         return [
             'name.required' => 'O campo nome é obrigatório.',
-            'email.required' => 'O campo email  é obrigatório.',
+            'name.string' => 'O campo nome deve ser uma string.',
+            'name.regex' => 'O campo nome deve conter apenas letras.',
+            'email.required' => 'O campo email é obrigatório.',
+            'email.email' => 'O campo email deve ser um endereço de e-mail válido.',
         ];
     }
 }
